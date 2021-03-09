@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.dismiss(animated: true, completion: nil)
         present(alertController, animated: true, completion: nil)
-        print("gggg")
     }
 
     @IBAction private func calculation(_ sender: Any) {
