@@ -26,15 +26,19 @@ class ViewController: UIViewController {
         let leftNum = Double(text1)
         let rightNum = Double(text2)
 
-        if leftNum == nil {
+        guard leftNum != nil else {
             alert(message: "割られる数を入力して下さい！")
-        } else if rightNum == nil {
-            alert(message: "割る数を入力してください！")
-        } else if rightNum == 0 {
-            alert(message: "割る数には0を入力しないでください")
-        } else {
-            resultNum = leftNum! / rightNum!
+            return
         }
+        guard rightNum != nil else {
+            alert(message: "割られる数を入力して下さい！")
+            return
+        }
+        guard rightNum != 0 else {
+            alert(message: "割る数には0を入力しないでください")
+            return
+        }
+        resultNum = leftNum! / rightNum!
         resultLabel.text = String(resultNum)
     }
 }
