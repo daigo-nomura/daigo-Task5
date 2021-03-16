@@ -23,22 +23,19 @@ class ViewController: UIViewController {
     @IBAction private func calculation(_ sender: Any) {
         guard let text1 = textField1.text else { return }
         guard let text2 = textField2.text else { return }
-        let leftNum = Double(text1)
-        let rightNum = Double(text2)
-
-        guard leftNum != nil else {
+        guard let leftNum = Double(text1) else {
             alert(message: "割られる数を入力して下さい！")
             return
         }
-        guard rightNum != nil else {
-            alert(message: "割られる数を入力して下さい！")
+        guard let rightNum = Double(text2) else {
+            alert(message: "割る数を入力して下さい！")
             return
         }
         guard rightNum != 0 else {
-            alert(message: "割る数には0を入力しないでください")
+            alert(message: "割る数には0を入力しないで下さい！")
             return
         }
-        resultNum = leftNum! / rightNum!
+        resultNum = leftNum / rightNum
         resultLabel.text = String(resultNum)
     }
 }
